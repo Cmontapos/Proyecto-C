@@ -315,13 +315,23 @@ int main() {
         }
     // Caso 3: Solucion de ecuacion lineal       
     }else{
-        double X = (-C) / B;
-        double x_izquierda, x_derecha;
-        hallar_subdominio(X, &x_izquierda, &x_derecha);
-        printf("\nEl subdominio es: (%lf, %lf)\n", x_izquierda, x_derecha);
-        generarArchivo("datos.txt", funcionCuadratica, funcionCuadratica,
+        if (B == 0){
+            double x_izquierda, x_derecha;
+            casos_especiales(&x_izquierda, &x_derecha);
+            printf("\nEl subdominio es: (%lf, %lf)\n", x_izquierda, x_derecha);
+            generarArchivo("datos.txt", funcionCuadratica, funcionCuadratica,
                        a1, b1, c1, a2, b2, c2, x_izquierda, x_derecha, puntosGraf);
-        graficasGnuplot("datos.txt");
+            graficasGnuplot("datos.txt");
+        } else {
+            double X = (-C) / B;
+            double x_izquierda, x_derecha;
+            hallar_subdominio(X, &x_izquierda, &x_derecha);
+            printf("\nEl subdominio es: (%lf, %lf)\n", x_izquierda, x_derecha);
+            generarArchivo("datos.txt", funcionCuadratica, funcionCuadratica,
+                       a1, b1, c1, a2, b2, c2, x_izquierda, x_derecha, puntosGraf);
+            graficasGnuplot("datos.txt");
+        }
+        
     }
     return 0;
 }
