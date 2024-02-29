@@ -1,16 +1,16 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
-LIBS = -lm -lgsl -lgslcblas
+LIBS = `pkg-config --cflags --libs gtk+-3.0`
 
-TARGET = errorEsperado
-SRC = errorEsperado.c
+.PHONY: all clean
 
-all: $(TARGET)
+all: p1 p2
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
+p1: Proyecto_Gato.c
+	$(CC) $(CFLAGS) -o exe Proyecto_Gato.c $(LIBS)
 
-.PHONY: clean
+p2: errorEsperado.c
+	$(CC) $(CFLAGS) -o exe errorEsperado.c -lm
 
 clean:
-	rm -f $(TARGET)
+	rm -f exe
