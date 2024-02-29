@@ -202,7 +202,7 @@ void graficasGnuplot(const char *nombreArchivo) {
         printf("Error al abrir la tubería de Gnuplot.\n");
         exit(1);
     }
-
+    // Poner los ejes del grafico
     fprintf(gnuplot_pipe, "set xlabel 'x'\n");
     fprintf(gnuplot_pipe, "set ylabel 'y'\n");
     fprintf(gnuplot_pipe, "plot '%s' using 1:2 with lines title 'Function 1', \
