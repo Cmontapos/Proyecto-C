@@ -177,12 +177,13 @@ void generarArchivo(const char *nombreArchivo, double (*func1)(double, double, d
                         double a1, double b1, double c1,
                         double a2, double b2, double c2,
                         double x_min, double x_max, int puntosGraf) {
+    // Abre el archivo si existe
     FILE *data_file = fopen(nombreArchivo, "w");
     if (data_file == NULL) {
         printf("Error al abrir el archivo de datos.\n");
         exit(1);
     }
-
+    // Agrega los datos al archivo
     double step = (x_max - x_min) / (puntosGraf - 1);
     for (int i = 0; i < puntosGraf; i++) {
         double x = x_min + i * step;
@@ -195,6 +196,7 @@ void generarArchivo(const char *nombreArchivo, double (*func1)(double, double, d
 
 // Graficar los datos utilizando Gnuplot
 void graficasGnuplot(const char *nombreArchivo) {
+    // Abre el archivo
     FILE *gnuplot_pipe = popen("gnuplot -persist 2>/dev/null", "w");
     if (gnuplot_pipe == NULL) {
         printf("Error al abrir la tubería de Gnuplot.\n");
