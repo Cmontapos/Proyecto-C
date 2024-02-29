@@ -4,6 +4,13 @@
 #include <math.h>
 #include <gsl/gsl_math.h>
 
+// Universidad de Costa Rica - IE-0117 
+// Proyecto de C - Segunda parte - Error Esperado
+// Integrantes:
+// Daniela Muñoz Arroyo - C15362
+// Melissa Rodríguez Jiménez - C16634
+// Cristopher Montero Campos - C14938
+
 // Se definen variables globales
 double A, B, C; // Constantes de la expresion cuadratica que se forma al igualar fx y gx
 double error_usuario; // Error permitido por usuario
@@ -259,7 +266,7 @@ int main() {
     
     // Primero se evalua las intersecciones de las funciones por lo que se deben igualar.
     // Generando la expresion (a1-a2)x^2+(b1-b2)x+(c1-c2)
-    // float A, B, C;  // Se definen nuevas constantes para expresion cuadratica
+    // Se definen nuevas constantes para expresion cuadratica
     a1 = coeficientes1[0];
     b1 = coeficientes1[1];
     c1 = coeficientes1[2];
